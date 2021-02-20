@@ -26,7 +26,30 @@ function PizzaTime() {
         </select>
       </label>
       <label> Pick your toppings:
-
+        <label> Pepperoni
+            <input
+              name = 'pep'
+              type = 'checkbox'
+            />
+        </label>
+        <label> Sausage
+            <input 
+              name = 'sausage'
+              type = 'checkbox'
+            />
+        </label>
+        <label> Mushroom
+            <input 
+              name = 'mushroom'
+              type = 'checkbox'
+            />
+        </label>
+        <label> Green Peppers
+            <input 
+              name = 'greenPep'
+              type = 'checkbox'
+            />
+        </label>
       </label>
     </form>
   )
