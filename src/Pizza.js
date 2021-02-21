@@ -105,6 +105,14 @@ function PizzaTime(props) {
           <div>{errors.crust}</div>
           <div>{errors.special}</div>
         </div>
+
+        <div className = 'order'>
+          <p>{submit.firstName}</p>
+          <p>{submit.lastName}</p>
+          <p>{submit.crust}</p>
+          <p>{submit.toppings}</p>
+          <p>{submit.special}</p>
+        </div>
       </form>
     </div>
   )

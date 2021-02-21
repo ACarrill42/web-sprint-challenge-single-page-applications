@@ -76,7 +76,7 @@ function App() {
     });
   };
 
-  const formSubmittion =() => {
+  const formSubmittion = () => {
     const newInformation = {
       firstName: formValues.firstName.trim(),
       lastName: formValues.lastName.trim(),
