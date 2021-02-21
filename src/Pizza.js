@@ -16,9 +16,12 @@ function PizzaTime(props) {
 
 
   const onSubmit = event => {
-
     event.preventDefault();
-    submit()
+    submit(alert(`
+      Your order: ${values.firstName} ${values.lastName}
+      crust: ${values.crust}
+      instructions: ${values.special}
+    `))
   }
 
   const onChange = event => {
@@ -115,14 +118,6 @@ function PizzaTime(props) {
           <div>{errors.lastName}</div>
           <div>{errors.crust}</div>
           <div>{errors.special}</div>
-        </div>
-
-        <div className = 'orderDetails'>
-          <h2>{values.firstName} {values.lastName}</h2>
-          <p>Your order is: </p>
-          <p>{values.crust}</p>
-          <p>{values.toppings}</p>
-          <p>{values.special}</p>
         </div>
       </form>
     </div>
