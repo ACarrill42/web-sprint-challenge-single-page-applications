@@ -5,6 +5,7 @@ import axios from 'axios';
 import {Route, Link, useHistory} from 'react-router-dom';
 import './App.css';
 import FormSchema from "./Schema";
+import PizzaTime from "./Pizza";
 
 const initialFormValues = {
   firstName: '',
@@ -24,7 +25,7 @@ const initialFormErrors = {
   special: ''
 };
 
-const buttonValidation = true;
+const buttonValidation = 'true';
 const infoShowUp = [];
 
 

@@ -4,20 +4,21 @@ import './Pizza.css';
 function PizzaTime(props) {
   const{values,submit,change,errors,disabled} = props
 
-  let display = 
-  <div className = 'order'>
-  <div>{submit.firstName}</div>
-  <div>{submit.lastName}</div>
-  <div>{submit.crust}</div>
-  <div>{submit.toppings}</div>
-  <div>{submit.special}</div>
-  </div>;
+  // let display = 
+  // <div className = 'order'>
+  // <div>{values.firstName}</div>
+  // <div>{values.lastName}</div>
+  // <div>{values.crust}</div>
+  // <div>{values.toppings}</div>
+  // <div>{values.special}</div>
+  // </div>;
+
+
 
   const onSubmit = event => {
+
     event.preventDefault();
     submit()
-    console.log("success, did not reload");
-
   }
 
   const onChange = event => {
@@ -108,7 +109,7 @@ function PizzaTime(props) {
           />
         </label>
         </div>    
-        <button className = 'orderButton' onClick = {() => (submit === {} ? display: 'no luck')}>Add to Order</button>
+        <button disable = {disabled} className = 'orderButton'>Add to Order</button>
         <div className = 'errors'>
           <div>{errors.firstName}</div>
           <div>{errors.lastName}</div>
@@ -116,13 +117,13 @@ function PizzaTime(props) {
           <div>{errors.special}</div>
         </div>
 
-        {/* <div className = 'order'>
-          <div>{submit.firstName}</div>
-          <div>{submit.lastName}</div>
-          <div>{submit.crust}</div>
-          <div>{submit.toppings}</div>
-          <div>{submit.special}</div>
-        </div> */}
+        <div className = 'orderDetails'>
+          <h2>{values.firstName} {values.lastName}</h2>
+          <p>Your order is: </p>
+          <p>{values.crust}</p>
+          <p>{values.toppings}</p>
+          <p>{values.special}</p>
+        </div>
       </form>
     </div>
   )
