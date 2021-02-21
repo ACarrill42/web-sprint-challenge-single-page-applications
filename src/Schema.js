@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-const formSchema = yup.object().shape({
+const FormSchema = yup.object().shape({
   firstName: yup
   .string()
   .required('Please enter your first name')
@@ -28,4 +28,4 @@ const formSchema = yup.object().shape({
   .required('Please enter so we can help you better')
 })
 
-export default formSchema
+export default FormSchema
