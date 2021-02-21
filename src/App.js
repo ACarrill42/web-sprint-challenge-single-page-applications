@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Pizza from './Pizza';
 import * as yup from 'yup';
 import axios from 'axios';
-import {Route, Link, Switch, useHistory} from 'react-router-dom';
+import {Route, Link, useHistory} from 'react-router-dom';
 import './App.css';
 import FormSchema from "./Schema";
 
@@ -10,15 +10,17 @@ const initialFormValues = {
   firstName: '',
   lastName: '',
   special: '',
+  crust: '',
   pep: false,
   sausage: false,
   mushroom: false,
   greenPep: false
-};
+}
 
 const initialFormErrors = {
   firstName: '',
   lastName: '',
+  crust: '',
   special: ''
 };
 
@@ -47,10 +49,10 @@ function Home() {
 }
 
 function App() {
-  const[formValues, setFormValues] = (initialFormValues)
-  const[formErrors, setFormErrors] = (initialFormErrors)
-  const[info, setInfo] = (infoShowUp)
-  const[disabled, setDisabled] = (buttonValidation)
+  const[formValues, setFormValues] = useState(initialFormValues)
+  const[formErrors, setFormErrors] = useState(initialFormErrors)
+  const[info, setInfo] = useState(infoShowUp)
+  const[disabled, setDisabled] = useState(buttonValidation)
 
   const inputChange = (name,value) => {
     yup.reach(FormSchema, name)
@@ -63,7 +65,7 @@ function App() {
   }
 
   const postInfo = newInfo => {
-    axios.post('https://reqres.in', newInfo)
+    axios.post('https://reqres.in/api/users', newInfo)
     .then(res => {
       console.log(res.data)
       setInfo([...info,res.data])
@@ -76,9 +78,11 @@ function App() {
 
   const formSubmittion =() => {
     const newInformation = {
-      firstName: formValues.name.trim(),
-      lastName: formValues.name.trim(),
-      special: formValues.special.trim()
+      firstName: formValues.firstName.trim(),
+      lastName: formValues.lastName.trim(),
+      special: formValues.special.trim(),
+      crust: formValues.crust.trim(),
+      toppings:['pep', 'sausage', 'mushroom','greenPep'].filter(top => !!formValues[top])
     }
     postInfo(newInformation)
   }
@@ -88,7 +92,7 @@ function App() {
       .then(isValid => {
         setDisabled(!isValid)
       })
-  }, [formValues])
+  }, [formValues]);
 
   return (
     <div className = 'App'>

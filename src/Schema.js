@@ -11,6 +11,10 @@ const FormSchema = yup.object().shape({
   .required('Please enter your last name')
   .min(2, 'Surname must be longer than 2 characters'),
 
+  crust: yup
+  .string()
+  .oneOf(['8in', '10in', '12in', '14in'], 'Crust size is required'),
+
   pep: yup
   .boolean(),
 
