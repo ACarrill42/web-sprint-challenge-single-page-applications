@@ -1,5 +1,6 @@
 import React from "react";
 import Pizza from './Pizza';
+import * as yup from 'yup';
 import {Route, Link, Switch, useHistory} from 'react-router-dom';
 import './App.css';
 
@@ -22,7 +23,6 @@ function Home() {
             <button onClick ={nextPage}>Pizza?</button>
         </div>                 
       </div>
-
   )
 }
 
